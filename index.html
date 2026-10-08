@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Nguyễn Danh Nam & Văn Thanh Nhi</title>
+<style>
+*{box-sizing:border-box} html,body{margin:0;width:100%;height:100%;overflow:hidden;font-family:Georgia,"Times New Roman",serif;background:#070709;color:#fff}
+body{touch-action:none}
+#book{width:100vw;height:100vh;position:relative;overflow:hidden;background:radial-gradient(circle at 50% 35%,#222 0,#09090b 48%,#030304 100%)}
+.page{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:32px;opacity:0;transform:translateX(100%);transition:transform .65s cubic-bezier(.77,0,.18,1),opacity .5s;pointer-events:none;overflow:hidden}
+.page.active{opacity:1;transform:translateX(0);pointer-events:auto}
+.page.prev{opacity:0;transform:translateX(-100%)}
+.content{position:relative;z-index:2;max-width:650px;width:100%}
+.kicker{font-family:Arial,sans-serif;letter-spacing:5px;text-transform:uppercase;font-size:11px;opacity:.72;margin-bottom:25px}
+.names{font-size:clamp(42px,11vw,78px);line-height:1.05;font-weight:400;letter-spacing:1px}
+.amp{font-size:.55em;font-style:italic;opacity:.7;margin:10px}
+.line{width:70px;height:1px;background:rgba(255,255,255,.55);margin:26px auto}
+.date{font-family:Arial,sans-serif;letter-spacing:4px;font-size:14px}
+h2{font-weight:400;font-size:34px;margin:0 0 22px}
+p{font-size:17px;line-height:1.8;margin:10px 0;color:#e9e9e9}
+.small{font-family:Arial,sans-serif;font-size:12px;letter-spacing:2px;opacity:.65}
+.card{border:1px solid rgba(255,255,255,.22);padding:34px 24px;background:rgba(255,255,255,.035);backdrop-filter:blur(5px)}
+.gold{color:#d9c18a}
+.stars{position:absolute;inset:0;overflow:hidden;z-index:1}
+.star{position:absolute;width:2px;height:2px;border-radius:50%;background:#fff;opacity:.7;animation:fall linear infinite}
+@keyframes fall{from{transform:translateY(-10vh);opacity:0}15%{opacity:.8}85%{opacity:.8}to{transform:translateY(110vh);opacity:0}}
+.corner{position:absolute;left:18px;right:18px;top:18px;bottom:18px;border:1px solid rgba(255,255,255,.08);pointer-events:none}
+.arrow{position:fixed;bottom:25px;z-index:20;left:50%;transform:translateX(-50%);font-family:Arial,sans-serif;font-size:11px;letter-spacing:2px;opacity:.5}
+.dots{position:fixed;top:20px;left:50%;transform:translateX(-50%);z-index:20;display:flex;gap:6px}
+.dot{width:5px;height:5px;border-radius:50%;background:#555;transition:.3s}.dot.on{background:#fff;width:18px;border-radius:5px}
+button{font-family:Arial,sans-serif;background:none;border:1px solid rgba(255,255,255,.35);color:#fff;padding:13px 22px;letter-spacing:2px;font-size:11px;margin-top:18px}
+@media(max-height:650px){.page{padding:20px}.names{font-size:39px}.card{padding:22px 18px}p{font-size:15px;line-height:1.55}}
+</style>
+</head>
+<body>
+<div id="book">
+  <div class="dots" id="dots"></div>
+
+
+  <section class="page active">
+    <div class="stars" id="stars1"></div><div class="corner"></div>
+    <div class="content">
+      <div class="kicker">Wedding Invitation</div>
+      <div style="font-size:74px;line-height:1;color:#d9c18a;margin-bottom:20px">囍</div>
+      <div class="names">Nguyễn Danh Nam<br><span class="amp">&</span><br>Văn Thanh Nhi</div>
+      <div class="line"></div>
+      <div class="date">06 · 12 · 2026</div>
+      <div class="small" style="margin-top:28px">VUỐT SANG ĐỂ MỞ THIỆP</div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="stars" id="stars2"></div><div class="corner"></div>
+    <div class="content">
+      <div style="font-size:64px;line-height:1;color:#d9c18a;margin-bottom:18px">囍</div>
+      <div class="kicker">Trân trọng kính mời</div>
+      <p style="font-size:18px">Đến dự hôn lễ và chung vui cùng gia đình chúng tôi</p>
+      <div class="line"></div>
+      <div class="small">GIA ĐÌNH NHÀ TRAI</div>
+      <p><strong>NGUYỄN DANH NAM</strong><br><span class="small">Trưởng Nam</span></p>
+      <div class="small" style="margin-top:18px">GIA ĐÌNH NHÀ GÁI</div>
+      <p><strong>VĂN THANH NHI</strong><br><span class="small">Trưởng Nữ</span></p>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="stars" id="stars3"></div><div class="corner"></div>
+    <div class="content">
+      <div class="kicker">Lễ Ăn Hỏi &amp; Rước Dâu</div>
+      <h2>Ngày chung đôi</h2>
+      <div class="line"></div>
+      <div class="date" style="font-size:22px">30 · 10 · 2026</div>
+      <p style="margin-top:25px">Gia đình hai bên trân trọng thông báo ngày<br>Nguyễn Danh Nam &amp; Văn Thanh Nhi<br>chính thức về chung một nhà.</p>
+      <div class="small" style="margin-top:25px">LỄ ĂN HỎI &nbsp; • &nbsp; LỄ RƯỚC DÂU</div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="stars" id="stars4"></div><div class="corner"></div>
+    <div class="content">
+      <div class="kicker">Trân trọng kính mời</div>
+      <h2>Tiệc Cưới</h2>
+      <div class="line"></div>
+      <p>Đến dự bữa tiệc chung vui cùng gia đình chúng tôi tại</p>
+      <h2 style="font-size:29px;color:#d9c18a;margin-top:18px">THE ADORA PREMIUM</h2>
+      <p><strong>SẢNH DIAMOND · LẦU 2</strong></p>
+      <div class="line"></div>
+      <div class="date" style="font-size:25px">06 · 12 · 2026</div>
+      <p class="small" style="margin-top:12px">VÀO LÚC 11 GIỜ 00</p>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="stars" id="stars5"></div><div class="corner"></div>
+    <div class="content">
+      <div class="kicker">Wedding Reception</div>
+      <div class="card">
+        <div class="date" style="font-size:27px">CHỦ NHẬT</div>
+        <div class="names" style="font-size:62px;margin:8px 0">06.12</div>
+        <p><strong>VÀO LÚC 11 GIỜ 00</strong></p>
+        <p class="small">THE ADORA PREMIUM · SẢNH DIAMOND · LẦU 2</p>
+      </div>
+      <p style="margin-top:28px">Sự hiện diện của bạn là niềm vui và vinh hạnh cho gia đình chúng tôi.</p>
+      <div class="names" style="font-size:34px;margin-top:18px">Kính Mời</div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="stars" id="stars6"></div><div class="corner"></div>
+    <div class="content">
+      <div class="kicker">Thank You</div>
+      <h2>Cảm ơn bạn<br>đã đến chung vui</h2>
+      <div class="line"></div>
+      <div class="names" style="font-size:36px">Nguyễn Danh Nam<br><span class="amp">&</span><br>Văn Thanh Nhi</div>
+      <button onclick="show(0)">XEM LẠI TỪ ĐẦU</button>
+    </div>
+  </section>
+  <div class="arrow">← VUỐT →</div>
+</div>
+
+<script>
+const pages=[...document.querySelectorAll('.page')];
+const dots=document.getElementById('dots');
+let i=0,startX=0,startY=0,locked=false;
+pages.forEach((_,n)=>{let d=document.createElement('span');d.className='dot'+(n===0?' on':'');dots.appendChild(d)});
+const dotEls=[...dots.children];
+
+function stars(id,count=55){
+  const el=document.getElementById(id); if(!el)return;
+  for(let k=0;k<count;k++){
+    const s=document.createElement('i');s.className='star';
+    s.style.left=(Math.random()*100)+'%';
+    s.style.animationDuration=(3+Math.random()*7)+'s';
+    s.style.animationDelay=(-Math.random()*8)+'s';
+    s.style.opacity=(.25+Math.random()*.7);
+    s.style.transform='scale('+(0.5+Math.random()*1.4)+')';
+    el.appendChild(s);
+  }
+}
+['stars1','stars2','stars3','stars4','stars5','stars6'].forEach(x=>stars(x));
+
+function show(n){
+  if(locked || n<0 || n>=pages.length || n===i)return;
+  locked=true;
+  pages[i].classList.remove('active');
+  pages[i].classList.add(n>i?'prev':'');
+  const old=i;i=n;
+  pages[i].classList.remove('prev');
+  pages[i].classList.add('active');
+  dotEls.forEach((d,k)=>d.classList.toggle('on',k===i));
+  setTimeout(()=>{pages[old].classList.remove('prev');locked=false},700);
+}
+function next(){show(i<pages.length-1?i+1:0)}
+function prev(){show(i>0?i-1:pages.length-1)}
+
+document.addEventListener('touchstart',e=>{startX=e.changedTouches[0].clientX;startY=e.changedTouches[0].clientY},{passive:true});
+document.addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].clientX-startX,dy=e.changedTouches[0].clientY-startY;
+  if(Math.abs(dx)>55 && Math.abs(dx)>Math.abs(dy)*1.2){dx<0?next():prev()}
+},{passive:true});
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' ' )next();if(e.key==='ArrowLeft')prev()});
+</script>
+</body>
+</html>
